@@ -10,3 +10,5 @@ Technology and tools wise this project covers,
 5) Jupyter notebook, visual studio code and pycharm as IDE
 6) Python flask for http server
 7) HTML/CSS/Javascript for UI
+8) Nginx Server
+9) Amazon AWS EC2 (Ububtu Instance)
