@@ -1,4 +1,7 @@
-This Project is based Supervised Learning.
+This Project is based Supervised Learning and hosted on Amazon EC2 .
+
+http://ec2-3-111-30-77.ap-south-1.compute.amazonaws.com/
+
 Technology and tools wise this project covers,
 1) Python
 2) Numpy and Pandas for data cleaning
