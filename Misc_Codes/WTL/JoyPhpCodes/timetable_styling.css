@@ -1,0 +1,54 @@
+* {
+  margin: 0;
+  padding: 0;
+  background-color: black;
+}
+
+table {
+  background-color: rgb(11, 10, 10);
+  border: 1px solid lightcyan;
+  margin: 150px auto;
+  box-sizing: border-box;
+}
+
+th {
+  /* background-color: beige; */
+  border: 1px solid white;
+  color: antiquewhite;
+  margin: 0;
+}
+
+td {
+  background-color: beige;
+  border: 1px solid red;
+  margin: 0;
+}
+
+.greenFont{
+  color: green;
+}
+
+.violetFont{
+  color: violet;
+}
+
+.redFont{
+  color: red;
+}
+
+.borderCollapse{
+  border-collapse: collapse;
+}
+
+#EntireTable{
+  background-color: brown;
+}
+
+#TopRowHeading, #TopRow{
+  background-color: rgb(27, 48, 41);
+  color: green;
+}
+
+# TableHeadings{
+  columns;
+}

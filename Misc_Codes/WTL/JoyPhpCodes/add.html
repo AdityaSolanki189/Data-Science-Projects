@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Add 2 numbers</title>
+
+  <style>
+    #btn {
+      size: 50px;
+      color: red;
+      border-color: blue;
+      border-radius: 8px;
+    }
+
+    body {
+      background-color: white;
+    }
+  </style>
+</head>
+
+<body id="fullBody">
+
+  <button id="btn" onclick="add()">Click Here to add numbers</button>
+  <br>
+  <button id="DisplayName" onclick="display()">Click here to display full name</button>
+  <br>
+  <button id="EnterColor" onclick="changecolor()">Click here to change color of the background</button>
+  <br>
+  
+  <form>
+    <select id="selectcolor">
+        <option value="red">Red</option>
+        <option value="blue">Blue</option>
+        <option value="green">Green</option>
+      </select>
+  </form>
+  
+
+  <button id="dropcolor" onclick="dropcolor()">Click here to change to selected color</button>
+  
+  <script>
+    
+
+    function add() {
+      var num1 = parseInt(window.prompt("Enter number"))
+      var num2 = parseInt(window.prompt("Enter number 2"))
+      document.write("Number 1: ", num1 + "<br>");
+      document.write("Number 2: ", num2 + "<br>");
+      document.write("Sum: ", num1 + num2);
+    };
+
+
+    function display() {
+      var FirstName = window.prompt("Enter First name")
+      var LastName = window.prompt("Enter last name")
+      document.write("Name: ", FirstName + " " + LastName + "<br>");
+    };
+
+    function changecolor() {
+      var input_color = window.prompt("enter color name");
+      element = document.getElementById("fullBody");
+      element.style.backgroundColor = input_color;
+    };
+
+    function dropcolor() {
+      input_color = document.getElementById("selectcolor").value;
+      console.log(input_color)
+      element = document.getElementById("fullBody")
+      element.style.backgroundColor = input_color;
+    };
+
+  </script>
+
+</body>
+
+</html>

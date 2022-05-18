@@ -1,0 +1,115 @@
+<html>
+	<head>
+		<title>
+			Registration Form
+		</title>
+
+		<style>
+    table{
+      size: 50px;
+      color: red;
+      border-radius: 8px;
+			font-size: 16px;
+    }
+
+    body {
+      background-color: white;
+    }
+  </style>
+	</head>
+
+	<body>
+		<h1 style="text-align:center">
+			Company registration Form
+		</h1>
+		<form>
+			<table style="border:1px solid black; margin-left:auto; margin-right:auto;">
+				<tr>
+					<td>
+						FirstName:
+					</td>
+					<td>
+						<input type="text" placeholder="Name" name="">
+					</td>
+					<td>LastName:</td>
+					<td>
+						<input type="text" placeholder="surname" name="">
+					</td>
+				</tr>
+
+				<tr>
+					<td>Phone Number:</td>
+					<td>
+						<input type="phone" placeholder="9876******" name="phone">
+					</td>
+				</tr>
+
+				<tr>
+					<td>Email id:</td>
+					<td>
+						<input type="email" placeholder="example@domain.com">
+					</td>
+				</tr>
+
+				<tr>
+					<td>Password:</td>
+					<td>
+						<input type="password" name="password" placeholder="********">
+					</td>
+				</tr>
+				
+				<tr>
+					<td>Gender:</td>
+					<td>
+						<input type="radio" name="gender">Male
+						<input type="radio" name="gender">Female
+					</td>
+				</tr>
+
+				<tr>
+					<td>Date of Birth:</td>
+					<td>
+						<input type="date" name="DOB">
+					</td>
+				</tr>
+
+				<tr>
+					<td>Hobbies:</td>
+					<td>
+						<input type="checkbox" name="hobbies">Gaming
+						<input type="checkbox" name="hobbies">Coding
+						<input type="checkbox" name="hobbies">Painting
+					</td>
+				</tr>
+
+				<tr>
+					<td>Address</td>
+					<td>
+						<textarea rows="5" columns="10" placeholder="address"></textarea>
+					</td>
+				</tr>
+
+				<tr>
+					<td>Education Qualifications</td>
+					<td>
+						<select>
+							<option>10 + 2</option>
+							<option>Diploma</option>
+							<option>Graduation</option>
+							<option>PostGraduation</option>
+							<option>Doctorate</option>
+						</select>
+					</td>
+				</tr>
+
+				<tr>
+					<td>
+						<input type="submit" value="Submit Form">
+						<input type="reset" value="Reset Form">
+					</td>
+				</tr>
+
+			</table>
+		</form>
+	</body>
+</html>
