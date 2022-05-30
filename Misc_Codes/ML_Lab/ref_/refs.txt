@@ -1,0 +1,13 @@
+DT:
+https://quantdare.com/decision-trees-gini-vs-entropy/
+https://scikit-learn.org/stable/modules/tree.html#tree-mathematical-formulation
+https://scikit-learn.org/stable/modules/generated/sklearn.tree.DecisionTreeClassifier.html#sklearn.tree.DecisionTreeClassifier
+
+PCA:
+https://builtin.com/data-science/step-step-explanation-principal-component-analysis
+
+There are 4 popular types of decision tree algorithms: ID3, CART (Classification and Regression Trees), Chi-Square and Reduction in Variance.
+
+Pruning is when you selectively remove branches from a tree. The goal is to remove unwanted branches, improve the tree's structure, and direct ...
+
+Softmax is a mathematical function that converts a vector of numbers into a vector of probabilities, where the probabilities of each value are proportional to the relative scale of each value in the vector.
