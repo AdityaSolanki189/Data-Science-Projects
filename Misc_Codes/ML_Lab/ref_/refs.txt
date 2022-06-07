@@ -1,13 +1,163 @@
-DT:
+Decision Trees:
 https://quantdare.com/decision-trees-gini-vs-entropy/
 https://scikit-learn.org/stable/modules/tree.html#tree-mathematical-formulation
 https://scikit-learn.org/stable/modules/generated/sklearn.tree.DecisionTreeClassifier.html#sklearn.tree.DecisionTreeClassifier
 
-PCA:
+There are 4 popular types of decision tree algorithms: ID3, CART (Classification and Regression Trees), Chi-Square and Reduction in Variance.
+Advantages of CART
+Simple to understand, interpret, visualize.
+Decision trees implicitly perform variable screening or feature selection.
+Can handle both numerical and categorical data. Can also handle multi-output problems.
+Decision trees require relatively little effort from users for data preparation.
+Nonlinear relationships between parameters do not affect tree performance.
+
+Disadvantages of CART
+Decision-tree learners can create over-complex trees that do not generalize the data well. This is called overfitting.
+Decision trees can be unstable because small variations in the data might result in a completely different tree being generated. This is called variance, which needs to be lowered by methods like bagging and boosting.
+Greedy algorithms cannot guarantee to return the globally optimal decision tree. This can be mitigated by training multiple trees, where the features and samples are randomly sampled with replacement.
+Decision tree learners create biased trees if some classes dominate.
+
+In this Decision Tree diagram, we have:
+
+Root Node: The first split which decides the entire population or sample data should further get divided into two or more homogeneous sets. In our case, the Outlook node. Splitting: It is a process of dividing a node into two or more sub-nodes. Decision Node: This node decides whether/when a sub-node splits into further sub-nodes or not. Here we have, Outlook node, Humidity node and Windy node. Leaf: Terminal Node that predicts the outcome (categorical or continues value). The coloured nodes, i.e., Yes and No nodes, are the leaves.
+ 
+
+Question: Base on which attribute (feature) to split? What is the best split?
+Answer: Use the attribute with the highest Information Gain or Gini Gain
+
+#ID3:
+ID3 decision tree algorithm uses Information Gain to decide the splitting points. In order to measure how much information we gain, we can use entropy to calculate the homogeneity of a sample.
+
+Question: What is “Entropy”? and What is its function?
+Answer: It is a measure of the amount of uncertainty in a data set. Entropy controls how a Decision Tree decides to split the data. It actually affects how a Decision Tree draws its boundaries.
+
+Entropy in Decision Tree stands for homogeneity.
+ 
+If the sample is completely homogeneous, the entropy is 0 (prob= 0 or 1)and if the sample is evenly distributed across classes, it has entropy of 1 (prob =0.5).
+
+Definition: Information Gain is the decrease or increase in Entropy value when the node is split.
+
+#CART:
+CART uses the Gini method to create split points including Gini Index (Gini Impurity) and Gini Gain.
+
+The definition of Gini Index: The probability of assigning a wrong label to a sample by picking the label randomly and is also used to measure feature importance in a tree.
+
+After calculating Gini Gain for every attribute, sklearn.tree.DecisionTreeClassifier will choose attribute with the largest Gini Gain as the Root Node. A branch with Gini of 0 is a leaf node while a branch with Gini more than 0 needs further splitting. Nodes are grown recursively until all data is classified (see the detail below).
+
+As mentioned, CART can also handle regression problem using a different splitting criterion: Mean Squared Error (MSE) to determine the splitting points. The output variable of a Regression Tree is numerical and the input variables allow a mixture of continuous and categorical variables.
+
+Pruning is a data compression technique in machine learning and search algorithms that reduces the size of decision trees by removing sections of the tree that are non-critical and redundant to classify instances. Pruning reduces the complexity of the final classifier, and hence improves predictive accuracy by the reduction of overfitting.
+
+Cart -> Classification+Regression -> Gini Index-> Selects its splits to achieve the subsets that minimize Gini Impurity
+
+ID3 -> Classification -> Yields the largest Information Gain for categorical targets
+
+Main Hyperparameters of DT:
+1. Depth
+2. Min Leaf size
+3. Min no size of split
+4. Max Number of leaves
+5. Min Impurity decrease
+
+The major disadvantage of Decision Trees is overfitting, especially when a tree is particularly deep. Fortunately, the more recent tree-based models including random forest and XGBoost are built on the top of decision tree algorithm and they generally perform better with a strong modeling technique and much more dynamic than a single decision tree. Therefore, understanding the concepts and algorithms behind Decision Trees thoroughly is super helpful to construct a good foundation of learning data science and machine learning.
+
+
+-----------------------------------------------------------------
+Principal Component Analysis:
 https://builtin.com/data-science/step-step-explanation-principal-component-analysis
 
-There are 4 popular types of decision tree algorithms: ID3, CART (Classification and Regression Trees), Chi-Square and Reduction in Variance.
-
-Pruning is when you selectively remove branches from a tree. The goal is to remove unwanted branches, improve the tree's structure, and direct ...
 
 Softmax is a mathematical function that converts a vector of numbers into a vector of probabilities, where the probabilities of each value are proportional to the relative scale of each value in the vector.
+-----------------------------------------------------------------
+SVM:
+set of supervised learning methods used for classification, regression and outliers detection
+A support vector machine attempts to find the line that "best" separates two classes of points.
+By "best", we mean the line that results in the largest margin between the two classes. The points that lie on this margin are the support vectors.
+
+#Advantages:
+i. Effective in high dimensional Spaces
+
+ii. Still effective in cases where number of dimensions is greater than the number of samples.
+
+iii. Uses a subset of training points in the decision function (called support vectors), so it is also memory efficient.
+
+iv. Versatile: different Kernel functions can be specified for the decision function. Common kernels are provided, but it is also possible to specify custom kernels.
+
+Kernels: linear, polynomial(degree 3), RBF(Radius Basis Function), Sigmoid
+
+#Disadvantages:
+i. If the number of features is much greater than the number of samples, avoid over-fitting in choosing Kernel functions and regularization term is crucial.
+
+ii. SVMs do not directly provide probability estimates, these are calculated using an expensive five-fold cross-validation
+
+https://www.geeksforgeeks.org/support-vector-machine-algorithm/
+
+-------------------------------------------------------------------
+
+KNN:
+Introduction:
+K Nearest Neighbor algorithm falls under the Supervised Learning category and is used for classification (most commonly) and regression. It is a versatile algorithm also used for imputing missing values and resampling datasets. As the name (K Nearest Neighbor) suggests it considers K Nearest Neighbors (Data points) to predict the class or continuous value for the new Datapoint.
+
+
+
+Required Data Preparation:
+1. Data Scaling: To locate the data point in multidimensional feature space, it would be helpful if all features are on the same scale. Hence normalization or standardization of data will help.
+
+2. Dimensionality Reduction: KNN may not work well if there are too many features. Hence dimensionality reduction techniques like feature selection, principal component analysis can be implemented.
+
+3. Missing value treatment: If out of M features one feature data is missing for a particular example in the training set then we cannot locate or calculate distance from that point. Therefore deleting that row or imputation is required.
+
+K is a crucial parameter in the KNN algorithm. Some suggestions for choosing K Value are:
+
+1. Using error curves: The figure below shows error curves for different values of K for training and test data.
+
+KNN algorithm k value
+Choosing a value for K
+At low K values, there is overfitting of data/high variance. Therefore test error is high and train error is low. At K=1 in train data, the error is always zero, because the nearest neighbor to that point is that point itself. Therefore though training error is low test error is high at lower K values. This is called overfitting. As we increase the value for K, the test error is reduced.
+
+But after a certain K value, bias/ underfitting is introduced and test error goes high. So we can say initially test data error is high(due to variance) then it goes low and stabilizes and with further increase in K value, it again increases(due to bias). The K value when test error stabilizes and is low is considered as optimal value for K. From the above error curve we can choose K=8 for our KNN algorithm implementation.
+
+2. Also, domain knowledge is very useful in choosing the K value.
+
+3. K value should be odd while considering binary(two-class) classification.
+
+fit() :
+In the fit() method, where we use the required formula and perform the calculation on the feature values of input data and fit this calculation to the transformer. For applying the fit() method we have to use .fit() in front of the transformer object.
+
+Suppose we initialize the StandardScaler object O and we do .fit() then what will it do that, it takes the feature F and it will just compute the mean (μ) and standard deviation (σ) of feature F. That has happened in the fit method.  
+
+transform() :
+
+For changing the data we probably do transform, in the transform() method, where we apply the calculations that we have calculated in fit() to every data point in feature F. We have to use .transform() in front of a fit object because we transform the fit calculations.
+
+We use the example that is used above section when we create an object of the fit method then we just put it in front of the .transform and transform method uses those calculations to transform the scale of the data points, and the output will we get is always in the form of sparse matrix or array.
+
+fit_transform():
+This fit_transform() method is basically the combination of fit method and transform method, it is equivalent to fit().transform(). This method performs fit and transform on the input data at a single time and converts the data points. If we use fit and transform separate when we need both then it will decrease the efficiency of the model so we use fit_transform() which will do both the work.
+
+Suppose, we create the StandarScaler object, and then we perform .fit_transform() then it will calculate the mean(μ) and standard deviation(σ) of the feature F at a time it will transform the data points of the feature F
+
+Pseudocode for K Nearest Neighbor (classification):
+This is pseudocode for implementing the KNN algorithm from scratch:
+
+Load the training data.
+Prepare data by scaling, missing value treatment, and dimensionality reduction as required.
+Find the optimal value for K:
+Predict a class value for new data:
+Calculate distance(X, Xi) from i=1,2,3,….,n.
+where X= new data point, Xi= training data, distance as per your chosen distance metric.
+Sort these distances in increasing order with corresponding train data.
+From this sorted list, select the top ‘K’ rows.
+Find the most frequent class from these chosen ‘K’ rows. This will be your predicted class.
+
+Advantages of KNN Algorithm:
+It is simple to implement.
+It is robust to the noisy training data
+It can be more effective if the training data is large.
+
+Disadvantages of KNN Algorithm:
+Always needs to determine the value of K which may be complex some time.
+The computation cost is high because of calculating the distance between the data points for all the training samples.
+
+https://www.analyticsvidhya.com/blog/2021/04/simple-understanding-and-implementation-of-knn-algorithm/
+
