@@ -10,11 +10,11 @@
 
 <body>
 	<div class="container">
-		<form action="" method="post">
+		<form action="/ta2/factorial.php" method="post">
 			<table>
 				<tr>
 					<td> Enter number</td>
-					<td> <input type="number" name="num" id="num">
+					<td> <input type="number" name="n" id="n">
 					<td><input type="submit" value="Submit"></td>
 				</tr>
 			</table>
@@ -22,19 +22,23 @@
 	</div>
 
 	<?php 
-		$n = $_POST["num"];
+	
+		if ($_SERVER['REQUEST_METHOD'] == "POST"){
+			$n = $_POST['n'];
+		}
 
-		function fact($n){
-			if ($n <= 1){
+		function factorical($n){
+			if ($n == 1){
 				return 1;
 			}
 			else{
 				$m = $n - 1;
-				return $n * fact($m);
+				return $n * factorical($m);
 			}
 		}
 
-		echo "factorial of $n : " . fact($n);
+		echo "factorial of $n :" . factorical($n);
+	
 	?>
 </body>
 

@@ -9,7 +9,7 @@
 </head>
 
 <body>
-	<form action="" method="post">
+	<form action="/ta2/days.php" method="post">
 		<input type="number" name="day" id="day number" placeholder='Enter a number between 1-7'>
 		<button type="submit">Submit</button>
 	</form>

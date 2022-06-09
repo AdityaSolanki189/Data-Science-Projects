@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Registration Form</title>
+</head>
+
+<body>
+    <center>
+        <form action="register.php" method="post">
+            Company ID:
+            <input type="text" name="companyID"><br><br> Company Name:
+            <input type="text" name="companyName"><br><br>
+            <label for="Location">Location:</label>
+            <select name="Location" id="Location">
+                <option value="Pune">Pune</option>
+                <option value="Mumbai">Mumbai</option>
+                <option value="Nashik">Nashik</option>
+            </select>
+            <br><br> Department:
+            <input type="text" name="Department"><br><br>
+
+            <input type="submit" value="Register">
+            <input type="reset" value="Reset">
+
+        </form>
+
+        <form action="display.php" method="POST">
+            <label for="Option">Location:</label>
+            <!--  <select name="Option" id="Option">
+                <option value="Pune">Pune</option>
+                <option value="Mumbai">Mumbai</option>
+                <option value="Nashik">Nashik</option>
+            </select> -->
+            <input type="text" name="city">
+            <input type="submit" value="Search">
+        </form>
+    </center>
+</body>
+
+</html>

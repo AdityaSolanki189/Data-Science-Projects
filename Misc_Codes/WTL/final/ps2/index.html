@@ -1,0 +1,38 @@
+<!-- Create a CSS-based bootcamp website that includes multiple front-end courses and instructor information. The site should have three sections: a header, a main section, and a footer. When the user clicks the browser close button, create a JavaScript alert that says "Thank you for viewing our page." -->
+<!DOCTYPE html>
+<html lang="en">
+    <script>
+        window.onbeforeunload = function() {
+            return '';
+        };
+    </script>
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bootcamp</title>
+    <link rel="stylesheet" href="style.css">
+
+</head>
+<body>
+    <header>
+        <h1>Welcome to front-end bootcamp</h1>
+        <hr>
+        <i>A website which offers you the latest information on front-end courses</i>
+    </header>
+    <h2>Online courses:</h2>
+   
+    <dl>
+        <dt>1. HTML Course</dt>
+        <dd>This course offers you all the information you need to know about the hyper text markup language <br> <b>Instructor : Nikhil Harpale</b> <br> Prof. at Dale University, FLorida, USA. Nikhil has completed international certifications from MIT Cambrigde in HTML</dd>
+        <dt>2. CSS Course</dt>
+        <dd>This course offers you all the information you need to know about the Cascading Style Sheets <br> <b>Instructor : Nikhil Harpale</b> <br> Prof. at Dale University, FLorida, USA. Nikhil has completed international certifications from MIT Cambrigde in CSS</dd>
+        <dt>3. JavaScript Course</dt>
+        <dd>This course offers you all the information you need to know about JavaScript <br> <b>Instructor : Nikhil Harpale</b> <br> Prof. at Dale University, FLorida, USA. Nikhil has completed international certifications from MIT Cambrigde in JavaScript</dd>
+    </dl>
+    <footer>
+        <hr>
+        <i>Please contact us at onlinecourses@abc.com for more information</i>
+    </footer>
+</body>
+</html>

@@ -1,0 +1,245 @@
+#include <iostream>
+using namespace std;
+
+void displaySubset(int subSet[], int size) {
+   for(int i = 0; i < size; i++) {
+      cout << subSet[i] << "  ";
+   }
+   cout << endl;
+}
+
+void subsetSum(int set[], int subSet[], int n, int subSize, int total, int nodeCount ,int sum) {
+   if( total == sum) {
+      displaySubset(subSet, subSize);     //print the subset
+      subsetSum(set,subSet,n,subSize-1,total-set[nodeCount],nodeCount+1,sum);     //for other subsets
+      return;
+   }else {
+      for( int i = nodeCount; i < n; i++ ) {     //find node along breadth
+         subSet[subSize] = set[i];
+         subsetSum(set,subSet,n,subSize+1,total+set[i],i+1,sum);     //do for next node in depth
+      }
+   }
+}
+
+void findSubset(int set[], int size, int sum) {
+   int *subSet = new int[size];     //create subset array to pass parameter of subsetSum
+   subsetSum(set, subSet, size, 0, 0, 0, sum);
+   delete[] subSet;
+}
+
+int main() {
+   int weights[] = {10, 7, 5, 18, 12, 20, 15};
+   int size = 7;
+   findSubset(weights, size, 35);
+}
+
+//-----------------------------------------------
+
+#include <bits/stdc++.h>
+using namespace std;
+#define V 4 // Total no of cities
+
+int TSP_Implement(int Adj_matrix[][V], int s)
+{
+	// Store all cities apart from the source city in a vector.
+	vector<int> cities;
+	for (int i = 0; i < V; i++)
+	if (i != s)
+	cities.push_back(i);
+
+	int min_distance = INT_MAX;
+	do 
+	{
+		// Taking starting Path distance as zero
+		int curr_distance = 0;
+
+		// compute current path distance
+		int k = s;
+		for (int i = 0; i < cities.size(); i++)
+       		{
+		curr_distance += Adj_matrix[k][cities[i]];
+		k = cities[i];
+		}
+		curr_distance += Adj_matrix[k][s];
+
+		// update minimum
+		min_distance = min(min_distance, curr_distance);
+	}
+	//using following permutation method of C++
+   	while(next_permutation(cities.begin(), cities.end()));
+
+	return min_distance;
+}
+
+int main()
+{
+	//The adjacent matrix of the graph given in the example
+	int Adj_matrix[][V] = 
+			{ { 0, 10, 15, 20 },
+        	{ 10, 0, 35, 25 },
+        	{ 15, 35, 0, 30 },
+        	{ 20, 25, 30, 0 } };
+	//Starting city or source
+	int start = 0;
+	cout <<"The minimum cost is: "<<TSP_Implement(Adj_matrix, start) << endl;
+	return 0;
+}
+
+//--------------------------------------------
+
+ll partition(vi &v , ll low , ll high){
+    
+    ll i = low - 1;
+    ll pvt = v[high];
+    ff(j , low , high){
+        if(v[j] < pvt){
+            i++;
+            swap(v[i] , v[j]);
+        }
+    }
+    swap(v[i + 1] , v[high]);
+    return (i + 1);
+    
+} 
+
+void quickSort(vi &v , ll low , ll high){
+    if(low < high){
+        ll pi = partition(v , low , high);
+        quickSort(v , low , pi - 1);
+        quickSort(v , pi + 1 , high);
+    }
+}
+
+int	main(){
+
+	#ifndef ONLINE_JUDGE
+		freopen("input.txt", "r", stdin);
+		freopen("output.txt", "w", stdout);
+	#endif
+
+	ll n;
+	cin >> n;
+	vi v(n);
+    fin(n , v);
+    quickSort(v , 0 , n - 1);
+    fout(n , v);
+
+	return 0;
+}
+
+//-----------------------------------------------
+
+// C++ program for Merge Sort
+#include <iostream>
+using namespace std;
+
+// Merges two subarrays of array[].
+// First subarray is arr[begin..mid]
+// Second subarray is arr[mid+1..end]
+void merge(int array[], int const left, int const mid, int const right)
+{
+	auto const subArrayOne = mid - left + 1;
+	auto const subArrayTwo = right - mid;
+
+	// Create temp arrays
+	auto *leftArray = new int[subArrayOne],
+		*rightArray = new int[subArrayTwo];
+
+	// Copy data to temp arrays leftArray[] and rightArray[]
+	for (auto i = 0; i < subArrayOne; i++)
+		leftArray[i] = array[left + i];
+	for (auto j = 0; j < subArrayTwo; j++)
+		rightArray[j] = array[mid + 1 + j];
+
+	auto indexOfSubArrayOne = 0, // Initial index of first sub-array
+		indexOfSubArrayTwo = 0; // Initial index of second sub-array
+	int indexOfMergedArray = left; // Initial index of merged array
+
+	// Merge the temp arrays back into array[left..right]
+	while (indexOfSubArrayOne < subArrayOne && indexOfSubArrayTwo < subArrayTwo) {
+		if (leftArray[indexOfSubArrayOne] <= rightArray[indexOfSubArrayTwo]) {
+			array[indexOfMergedArray] = leftArray[indexOfSubArrayOne];
+			indexOfSubArrayOne++;
+		}
+		else {
+			array[indexOfMergedArray] = rightArray[indexOfSubArrayTwo];
+			indexOfSubArrayTwo++;
+		}
+		indexOfMergedArray++;
+	}
+	// Copy the remaining elements of
+	// left[], if there are any
+	while (indexOfSubArrayOne < subArrayOne) {
+		array[indexOfMergedArray] = leftArray[indexOfSubArrayOne];
+		indexOfSubArrayOne++;
+		indexOfMergedArray++;
+	}
+	// Copy the remaining elements of
+	// right[], if there are any
+	while (indexOfSubArrayTwo < subArrayTwo) {
+		array[indexOfMergedArray] = rightArray[indexOfSubArrayTwo];
+		indexOfSubArrayTwo++;
+		indexOfMergedArray++;
+	}
+}
+
+// begin is for left index and end is
+// right index of the sub-array
+// of arr to be sorted */
+void mergeSort(int array[], int const begin, int const end)
+{
+	if (begin >= end)
+		return; // Returns recursively
+
+	auto mid = begin + (end - begin) / 2;
+	mergeSort(array, begin, mid);
+	mergeSort(array, mid + 1, end);
+	merge(array, begin, mid, end);
+}
+
+// UTILITY FUNCTIONS
+// Function to print an array
+void printArray(int A[], int size)
+{
+	for (auto i = 0; i < size; i++)
+		cout << A[i] << " ";
+}
+
+// Driver code
+int main()
+{
+	int arr[] = { 12, 11, 13, 5, 6, 7 };
+	auto arr_size = sizeof(arr) / sizeof(arr[0]);
+
+	cout << "Given array is \n";
+	printArray(arr, arr_size);
+
+	mergeSort(arr, 0, arr_size - 1);
+
+	cout << "\nSorted array is \n";
+	printArray(arr, arr_size);
+	return 0;
+}
+
+//----------------------------------
+
+%{
+#include<stdio.h>
+#include<stdlib.h>
+%}
+/* Rule Section */
+%%
+^[0-9]* printf("digit");
+^[^0-9]|[0-9]*[a-zA-Z] printf("not a digit");
+. ;
+%%
+int main()
+{
+		
+	yylex();
+		return 0;
+}
+
+//---------------------------------------------
+
+

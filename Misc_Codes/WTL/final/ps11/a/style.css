@@ -1,0 +1,31 @@
+h1 {  
+    text-align: center;  
+    padding: 30px;  
+    background-color: skyblue;  
+    color: white;  
+    }  
+      
+    .dash {  
+    margin: 30px;  
+    width: 80%;  
+    border: 3px solid gray;  
+    border-radius: 5px;  
+    padding: 30px;  
+    }  
+      
+  
+    #pa2 {  
+      
+    width: 50%;  
+    border: 3px solid gray;  
+    border-radius: 5px;  
+    padding: 10px;  
+    } 
+
+    #pa {  
+      
+        width: 50%;  
+        border: 3px solid gray;  
+        border-radius: 5px;  
+        padding: 10px;  
+        } 

@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Company registration form</title>
+    <link rel="stylesheet" href="Form.css" />
+    <script>
+      function Display() {
+        alert("Form submitted successfully ");
+      }
+    </script>
+  </head>
+  <body>
+    <header class="header">
+      <h3>Company Registration Form</h3>
+    </header>
+
+    <form>
+      <div class="main-form">
+        <label for="bname">Business Name <em style="color: red">*</em> :</label>
+        <input type="text" id="bname" name="bname" required />
+        <div class="in-blk">
+          <label for="phone">Phone<em style="color: red">*</em>:</label>
+          <input
+            type="number"
+            id="phone"
+            name="phone"
+            value="Area Code"
+            style="height: 20px; width: 90px"
+            required
+          />
+          -
+          <input
+            type="number"
+            id="phone"
+            name="phone"
+            value="Phone Number"
+            style="height: 20px; width: 280px"
+            required
+          />
+        </div>
+
+        <label for="abn">A.B.N.<em style="color: red">*</em>:</label>
+        <input type="text" id="abn" name="abn" required />
+
+        <label for="email">E-mail<em style="color: red">*</em>:</label>
+        <input
+          type="email"
+          id="email"
+          name="email"
+          placeholder="ex:myname@example.com"
+          required
+        />
+
+        <label for="website">Website:<em style="color: red">*</em></label>
+        <input type="url" id="website" name="website" required />
+
+        <label for="shipping_address">Shipping address:</label>
+        <input type="text" placeholder="Street Address" />
+        <input type="text" placeholder="Street Adress Line 2" />
+        <input type="text" placeholder="City" /><input
+          type="text"
+          placeholder="State"
+        />
+        <input type="text" placeholder="Postal/Zipcode" />
+        <select name="Country" id="Country">
+          <option value="Please Select">Please Select</option>
+          <option value="India">India</option>
+          <option value="United States">United States</option>
+          <option value="Algeria">Algeria</option>
+          <option value="Afghanistan">Afghanistan</option>
+          <option value="China">China</option>
+          <option value="Bangladesh">Bangladesh</option>
+          <option value="Sri Lanka">Sri Lanka</option>
+        </select>
+
+        <label for="trading">Trading since:</label>
+        <input type="date" />
+
+        <label for="businessType"
+          >Type of business<em style="color: red">*</em>:</label
+        >
+        <input type="checkbox" /> <label for="Internet">Internet</label>
+        <input type="checkbox" /> <label for="Bricks">Bricks and Mortar</label>
+        <input type="checkbox" /> <label for="Wholesale">Wholesale</label>
+
+        <label for="trading">Preferred Payment:</label>
+        <input type="checkbox" /> <label for="paypal">Paypal</label>
+        <input type="checkbox" /> <label for="bank">Bank Transfer</label>
+        <input type="checkbox" /> <label for="Money Order">Money Order</label>
+        <input type="checkbox" /> <label for="cheque">Cheque</label>
+        <input type="checkbox" /> <label for="visacard">Visa/Mastercard</label>
+        <hr />
+
+        <h3>Business Representative Information</h3>
+        <hr />
+
+        <label for="name">Full Name<em style="color: red">*</em>:</label>
+        <input type="text" placeholder="First Name" required /><input
+          type="text"
+          placeholder="Last Name"
+          required
+        />
+
+        <label for="address">Address:</label>
+        <input type="text" placeholder="Street Address" />
+        <input type="text" placeholder="Street Adress Line 2" />
+        <input type="text" placeholder="City" /><input
+          type="text"
+          placeholder="State"
+        />
+        <input type="text" placeholder="Postal/Zipcode" />
+        <select name="Country" id="Country">
+          <option value="Please Select">Please Select</option>
+          <option value="India">India</option>
+          <option value="United States">United States</option>
+          <option value="Algeria">Algeria</option>
+          <option value="Afghanistan">Afghanistan</option>
+          <option value="China">China</option>
+          <option value="Bangladesh">Bangladesh</option>
+          <option value="Sri Lanka">Sri Lanka</option>
+        </select>
+
+        <label for="phone">Phone<em style="color: red">*</em>:</label>
+        <input
+          type="number"
+          id="phone"
+          name="phone"
+          value="Area Code"
+          style="height: 20px; width: 90px"
+          required
+        />
+        -
+        <input
+          type="number"
+          id="phone"
+          name="phone"
+          value="Phone Number"
+          style="height: 20px; width: 280px"
+          required
+        />
+
+        <label for="message">Message</label>
+        <textarea name="message" rows="5" cols="30"> </textarea>
+        <input class="btn" type="submit" onclick="Display()" value="Submit" />
+      </div>
+    </form>
+
+    <footer class="footer">&copy;</footer>
+  </body>
+</html>

@@ -1,7 +1,10 @@
 <?php
-$database = 'localhost';
-$dbName = 'mitadt';
-$dbUser = 'root';
-$dbPass = 'amit';
-$mysqli = mysqli_connect($database, $dbUser, $dbPass, $dbName);
+    $database = 'localhost';
+    $dbName = 'ques_sixteen';
+    $dbUser = 'root';
+    $dbPass = '';
+    $mysql_conn = new mysqli($database, $dbUser, $dbPass, $dbName) or die('Unable to Connect to DB.');
+
+    echo "welcome to ".$dbName." Database";
+
 ?>
